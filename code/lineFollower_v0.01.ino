@@ -28,20 +28,20 @@ void loop() {
   if(sensor3==1){ //change later
     goForward();
   }
-  
+
   if(sensor1==1 && sensor2==1 && sensor3==1){
-  rightAngle();  
+  rightAngle();
   }
 
   if(sensor5==1 && sensor4==1 && sensor3==1){
-  leftAngle();  
+  leftAngle();
   }
 
-  
-  for(int c=0; c=!-1; c++){  
-  
-  
-  
+
+  for(int c=0; c=!-1; c++){
+
+
+
   }
 
 
@@ -60,18 +60,18 @@ void goForward(){
   digitalWrite(motor1a , HIGH); // run the right motor in a direction
   digitalWrite(motor1b , LOW);
   digitalWrite(motor2a , HIGH); // run the Left motor in the same direction as right
-  digitalWrite(motor2b , LOW);  
+  digitalWrite(motor2b , LOW);
 }
 
 void rightAngle(){
-   do {    
+   do {
     goRightRA();
   }
   while(sensor1!=1 && sensor2!=1 && sensor3==1);
 }
 
 void leftAngle(){
-   do {    
+   do {
     goleftRA();
   }
   while(sensor5!=1 && sensor4!=1 && sensor3==1);
@@ -79,15 +79,15 @@ void leftAngle(){
 
 
 void goRightRA(){ // to turn right slowly momentarly
-  digitalWrite(motor1a , LOW); 
+  digitalWrite(motor1a , LOW);
   digitalWrite(motor1b , LOW);
   analogWrite(motor2a , 175); // run the Left motor in the same direction as right
-  digitalWrite(motor2b , LOW);  
+  digitalWrite(motor2b , LOW);
 }
 
 void goleftRA(){ // to turn left slowly momentarly
-  analogWrite(motor1a , 175); // run the left motor in a direction 
-  digitalWrite(motor1b , LOW);  
-  analogWrite(motor2a , LOW); 
-  digitalWrite(motor2b , LOW);   
+  analogWrite(motor1a , 175); // run the left motor in a direction
+  digitalWrite(motor1b , LOW);
+  analogWrite(motor2a , LOW);
+  digitalWrite(motor2b , LOW);
 }
