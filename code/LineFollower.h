@@ -1,0 +1,32 @@
+#ifndef LINEFOLLOWER_H
+#define LINEFOLLOWER_H
+
+#include "Arduino.h"
+
+class LineFollower
+{
+  private:
+    //variables
+    int motor1a , motor1b; // Motor 1 pins
+    int motor2a , motor2b; // Motor 2 pins
+
+    // Sensor pins
+    int sensor1 , sensor2 , sensor3 , sensor4 , sensor5 ;
+    // sensor1 = leftmost  , sensor5 = Rightmost
+
+  public:
+    LineFollower(int _motor1a, int _motor1b, int _motor2a, int _motor2b,
+                 int _sensor1, int _sensor2, int _sensor3, int _sensor4, int _sensor5);
+
+    void goForward( int f);
+    void stopCar();
+    void goBackward(int b); // do we need it??????
+    void turnRight(int r); 
+    void turnLeft(int l); 
+    void activateSensors();
+    int valueOfSensor(int a); // get the value of specific sensor e.g. sensor4
+    void rightRA(int rra); // detect a Right angle on the right of the car.
+    void leftRA(int lra); // detect a Right angle on the left of the car.
+};
+
+#endif // LINEFOLLOWER_H

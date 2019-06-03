@@ -1,0 +1,31 @@
+###################################
+# Syntax Coloring Map For LineFollower
+###################################
+
+###################################
+# Datatypes (KEYWORD1)
+###################################
+
+LineFollower	KEYWORD1
+
+###################################
+# Methods and Functions (KEYWORD2)
+###################################
+
+goForward	KEYWORD2
+stopCar	KEYWORD2
+goBackward	KEYWORD2
+turnRight	KEYWORD2
+turnLeft	KEYWORD2
+activateSensors	KEYWORD2
+valueOfSensor	KEYWORD2
+rightRA	KEYWORD2
+leftRA	KEYWORD2
+timer_stop	KEYWORD2
+convert_in	KEYWORD2
+convert_cm	KEYWORD2
+
+###################################
+# Constants (LITERAL1)
+###################################
+
