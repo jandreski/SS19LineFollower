@@ -1,5 +1,4 @@
-
-#include "LineFollower.h"
+#include "lineFollower.h"
 int minValue=1; //Specific analog or digital value of the sensor 
 
 
