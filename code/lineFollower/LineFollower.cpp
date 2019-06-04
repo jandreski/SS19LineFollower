@@ -31,6 +31,8 @@ LineFollower::LineFollower(int _motor1a, int _motor1b, int _motor2a, int _motor2
   pinMode(sensor3, INPUT);
   pinMode(sensor4, INPUT);
   pinMode(sensor5, INPUT);
+
+  Serial.begin(9600);
 }
 
 
@@ -126,4 +128,44 @@ void LineFollower::leftRA(int lra) {
     digitalWrite(motor2b , LOW);
   }
   while (sensor5 != 1 && sensor4 != 1 && sensor3 == 1); // To be changed?!
+}
+
+
+void LineFollower::testSensors(int numberOfSensors , char signalType)//Test code for one sensor or 5 sensors pass 'A' for analog , 'D' for digital
+{
+  if (numberOfSensors == 1 && signalType == 'A') { // test code for 1 analog sensor  
+    sensor1 = analogRead(A0);
+    Serial.println(sensor1);
+  }
+
+  else if (numberOfSensors == 1 && signalType == 'D') { // test code for 1 digital sensor
+    sensor1 = digitalRead(A0);
+    Serial.println(sensor1);
+  }
+
+  else if (numberOfSensors == 5 && signalType == 'A') { // test code for 5 analog sensor
+    sensor1 = analogRead(A0);
+    sensor2 = analogRead(A1);
+    sensor3 = analogRead(A2);
+    sensor4 = analogRead(A3);
+    sensor5 = analogRead(A4);
+    Serial.print(sensor1 + " " + sensor2);
+    Serial.print(" " + sensor3);
+    Serial.print(" " + sensor4);
+    Serial.println(" " + sensor5);
+  }
+
+  else{ // test code for 5 digital sensor
+    sensor1 = digitalRead(A0);
+    sensor2 = digitalRead(A1);
+    sensor3 = digitalRead(A2);
+    sensor4 = digitalRead(A3);
+    sensor5 = digitalRead(A4);
+    Serial.print(sensor1 + " " + sensor2);
+    Serial.print(" " + sensor3);
+    Serial.print(" " + sensor4);
+    Serial.println(" " + sensor5);
+  }
+
+
 }

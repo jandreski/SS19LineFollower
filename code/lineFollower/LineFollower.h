@@ -27,6 +27,7 @@ class LineFollower
     int valueOfSensor(int a); // get the value of specific sensor e.g. sensor4
     void rightRA(int rra); // detect a Right angle on the right of the car.
     void leftRA(int lra); // detect a Right angle on the left of the car.
+    void testSensors(int numberOfSensors , char signalType);//Test code for one sensor or 5 sensors
 };
 
 #endif // LINEFOLLOWER_H

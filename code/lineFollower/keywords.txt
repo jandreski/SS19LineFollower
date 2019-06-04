@@ -21,7 +21,7 @@ activateSensors	KEYWORD2
 valueOfSensor	KEYWORD2
 rightRA	KEYWORD2
 leftRA	KEYWORD2
-timer_stop	KEYWORD2
+testSensors	KEYWORD2
 convert_in	KEYWORD2
 convert_cm	KEYWORD2
 
