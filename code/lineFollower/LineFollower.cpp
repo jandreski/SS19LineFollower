@@ -3,7 +3,7 @@
 
 
 // constructor....
-LineFollower::LineFollower(int _motor1a, int _motor1b, int _motor2a, int _motor2b,
+LineFollower::LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1b, int _motor2a, int _motor2b,
                            int _sensor1, int _sensor2, int _sensor3, int _sensor4, int _sensor5)
 {
   // store the motor pins arguments inside the variables
@@ -32,6 +32,16 @@ LineFollower::LineFollower(int _motor1a, int _motor1b, int _motor2a, int _motor2
   pinMode(sensor4, INPUT);
   pinMode(sensor5, INPUT);
 
+  //Enable Motor driver channels  
+  enable1= _enable1; // store the enable pins arguments inside the variables
+  enable2= _enable2; // store the enable pins arguments inside the variables
+  pinMode(enable1, OUTPUT);
+  pinMode(enable2, OUTPUT);
+  digitalWrite(enable1, HIGH);
+  digitalWrite(enable2, HIGH);
+
+
+  // to visualise sensor data from computer's monitor
   Serial.begin(9600);
 }
 

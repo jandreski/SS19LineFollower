@@ -14,8 +14,12 @@ class LineFollower
     int sensor1 , sensor2 , sensor3 , sensor4 , sensor5 ;
     // sensor1 = leftmost  , sensor5 = Rightmost
 
+    //Pins of Motor driver channels
+    int enable1,enable2;
+    
+
   public:
-    LineFollower(int _motor1a, int _motor1b, int _motor2a, int _motor2b,
+    LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1b, int _motor2a, int _motor2b,
                  int _sensor1, int _sensor2, int _sensor3, int _sensor4, int _sensor5);
 
     void goForward( int f);
