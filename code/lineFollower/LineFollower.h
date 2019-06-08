@@ -2,7 +2,7 @@
 #define LINEFOLLOWER_H
 
 #include "Arduino.h"
-#include <fstream>
+//#include <fstream>
 
 //master control constants
 //const double forwardConst = 10;
@@ -25,7 +25,7 @@ class LineFollower
     int enable1,enable2;
 
     //log file
-    std::ofstream logFile;
+    //std::ofstream logFile;
 
   public:
     LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1b, int _motor2a, int _motor2b,

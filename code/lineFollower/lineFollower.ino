@@ -4,10 +4,10 @@
 
 int blackValue=0; //Specific analog or digital value of the sensor at which the sensor reads black.
 int whiteValue=1;
-LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);//en1 , en2, M1.1 , M1.2 , M2.1 , M2.2 , S1, S2, S3, S4, S5 
+LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);//en1 , en2, M1.1 , M1.2 , M2.1 , M2.2 , S1, S2, S3, S4, S5
 
 void setup() {
-  
+
 
 }
 
@@ -19,7 +19,7 @@ void loop() {
 
 
  lineFollower.goForward(255);
- 
+
  if (lineFollower.valueOfSensor(1) == whiteValue && lineFollower.valueOfSensor(2) == whiteValue
       && lineFollower.valueOfSensor(3) == whiteValue && lineFollower.valueOfSensor(4) == whiteValue
       && lineFollower.valueOfSensor(5) == whiteValue) {
@@ -40,7 +40,7 @@ void loop() {
   //if (lineFollower.valueOfSensor(3) == blackValue){
     lineFollower.goBackward(100);//go forward with 100/255 speed
   //}
-  
+
 
   //Stop the car if all sensors read black(The end of the line)
   if (lineFollower.valueOfSensor(1) == blackValue && lineFollower.valueOfSensor(2) == blackValue
