@@ -9,6 +9,8 @@
 //const double softTurnConst = 10;
 //const double hardTurnConst = 10;
 
+const int blackValue = 0; //Specific analog or digital value of the sensor at which the sensor reads black.
+const int whiteValue = 1;
 
 class LineFollower
 {
@@ -17,7 +19,7 @@ class LineFollower
     int motor1a , motor1b; // Motor 1 pins
     int motor2a , motor2b; // Motor 2 pins
 
-    // Sensor pins
+    // Sensor value readings
     int sensor1 , sensor2 , sensor3 , sensor4 , sensor5 ;
     // sensor1 = leftmost  , sensor5 = Rightmost
 
@@ -35,12 +37,14 @@ class LineFollower
     void stopCar();
     void goBackward(int b); // do we need it??????
     void turnRight(int r);
-    void turnLeft(int l);
-    void activateSensors();
+    void turnLeft(int,int);
+    void storeSensorValues();
     int valueOfSensor(int a); // get the value of specific sensor e.g. sensor4
     void rightRA(int rra); // detect a Right angle on the right of the car.
     void leftRA(int lra); // detect a Right angle on the left of the car.
     void testSensors(int numberOfSensors , char signalType);//Test code for one sensor or 5 sensors
+
+    void determineDirection();
 };
 
 #endif // LINEFOLLOWER_H

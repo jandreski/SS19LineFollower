@@ -2,8 +2,6 @@
 #include "LineFollower.h"
 
 
-int blackValue=0; //Specific analog or digital value of the sensor at which the sensor reads black.
-int whiteValue=1;
 LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);//en1 , en2, M1.1 , M1.2 , M2.1 , M2.2 , S1, S2, S3, S4, S5
 
 void setup() {
@@ -14,7 +12,14 @@ void setup() {
 void loop() {
 
   // get all sensors' readings.
-  lineFollower.activateSensors();
+
+  lineFollower.goForward(200);
+  lineFollower.storeSensorValues();
+  lineFollower.determineDirection();
+  
+
+  /*
+  lineFollower.storeSensorValues();
 
 
 
@@ -24,6 +29,7 @@ void loop() {
       && lineFollower.valueOfSensor(3) == whiteValue && lineFollower.valueOfSensor(4) == whiteValue
       && lineFollower.valueOfSensor(5) == whiteValue) {
     lineFollower.stopCar();
+    */
   }
 
 
@@ -78,5 +84,3 @@ void loop() {
   }
 
 */
-
-}
