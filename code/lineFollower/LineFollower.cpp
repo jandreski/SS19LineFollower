@@ -29,11 +29,11 @@ LineFollower::LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1
   sensor5 = _sensor5;
 
   // set/initialise Sensor pins as INPUT
-  pinMode(sensor1, INPUT);
-  pinMode(sensor2, INPUT);
-  pinMode(sensor3, INPUT);
-  pinMode(sensor4, INPUT);
-  pinMode(sensor5, INPUT);
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(A3, INPUT);
+  pinMode(A4, INPUT);
 
   //Enable Motor driver channels
   enable1= _enable1; // store the enable pins arguments inside the variables
@@ -94,37 +94,51 @@ void LineFollower::turnLeft(int l) {
 }
 
 void LineFollower::activateSensors() {
+<<<<<<< HEAD
+  sensor1 = digitalRead(A0);
+  sensor2 = digitalRead(A1);
+  sensor3 = digitalRead(A2);
+  sensor4 = digitalRead(A3);
+  sensor5 = digitalRead(A4);
+||||||| merged common ancestors
+  sensor1 = analogRead(A0);
+  sensor2 = analogRead(A1);
+  sensor3 = analogRead(A2);
+  sensor4 = analogRead(A3);
+  sensor5 = analogRead(A4);
+=======
   logFile << "Reading sensor values...\n";
   sensor1 = analogRead(A0);
   sensor2 = analogRead(A1);
   sensor3 = analogRead(A2);
   sensor4 = analogRead(A3);
   sensor5 = analogRead(A4);
+>>>>>>> db2de5fbb1a54a4694ab721f98eb8ef8354551c7
 }
 
 int LineFollower::valueOfSensor(int a) { // a is the number of sensor whose value is required
   if (a == 1) {
-    sensor1 = analogRead(A0);
+    sensor1 = digitalRead(A0);
     return sensor1;
   }
 
   if (a == 2) {
-    sensor2 = analogRead(A1);
+    sensor2 = digitalRead(A1);
     return sensor2;
   }
 
   if (a == 3) {
-    sensor3 = analogRead(A2);
+    sensor3 = digitalRead(A2);
     return sensor3;
   }
 
   if (a == 4) {
-    sensor4 = analogRead(A3);
+    sensor4 = digitalRead(A3);
     return sensor4;
   }
 
   if (a == 5) {
-    sensor5 = analogRead(A4);
+    sensor5 = digitalRead(A4);
     return sensor5;
   }
 
@@ -174,10 +188,15 @@ void LineFollower::testSensors(int numberOfSensors , char signalType)//Test code
     sensor3 = analogRead(A2);
     sensor4 = analogRead(A3);
     sensor5 = analogRead(A4);
-    Serial.print(sensor1 + " " + sensor2);
-    Serial.print(" " + sensor3);
-    Serial.print(" " + sensor4);
-    Serial.println(" " + sensor5);
+    Serial.print(sensor1);
+    Serial.print(" ");
+    Serial.print(sensor2);
+    Serial.print(" ");
+    Serial.print(sensor3);
+    Serial.print(" ");
+    Serial.print(sensor4);
+    Serial.print(" ");
+    Serial.println(sensor5);
   }
 
   else{ // test code for 5 digital sensor
@@ -186,10 +205,15 @@ void LineFollower::testSensors(int numberOfSensors , char signalType)//Test code
     sensor3 = digitalRead(A2);
     sensor4 = digitalRead(A3);
     sensor5 = digitalRead(A4);
-    Serial.print(sensor1 + " " + sensor2);
-    Serial.print(" " + sensor3);
-    Serial.print(" " + sensor4);
-    Serial.println(" " + sensor5);
+    Serial.print(sensor1);
+    Serial.print(" ");
+    Serial.print(sensor2);
+    Serial.print(" ");
+    Serial.print(sensor3);
+    Serial.print(" ");
+    Serial.print(sensor4);
+    Serial.print(" ");
+    Serial.println(sensor5);
   }
 
 
