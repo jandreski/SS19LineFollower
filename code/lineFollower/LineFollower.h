@@ -2,6 +2,13 @@
 #define LINEFOLLOWER_H
 
 #include "Arduino.h"
+#include <fstream>
+
+//master control constants
+//const double forwardConst = 10;
+//const double softTurnConst = 10;
+//const double hardTurnConst = 10;
+
 
 class LineFollower
 {
@@ -16,7 +23,9 @@ class LineFollower
 
     //Pins of Motor driver channels
     int enable1,enable2;
-    
+
+    //log file
+    std::ofstream logFile;
 
   public:
     LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1b, int _motor2a, int _motor2b,
@@ -25,8 +34,8 @@ class LineFollower
     void goForward( int f);
     void stopCar();
     void goBackward(int b); // do we need it??????
-    void turnRight(int r); 
-    void turnLeft(int l); 
+    void turnRight(int r);
+    void turnLeft(int l);
     void activateSensors();
     int valueOfSensor(int a); // get the value of specific sensor e.g. sensor4
     void rightRA(int rra); // detect a Right angle on the right of the car.

@@ -1,5 +1,8 @@
 #include "LineFollower.h"
 #include "Arduino.h"
+#include <iostream>
+
+using namespace std;
 
 
 // constructor....
@@ -32,7 +35,7 @@ LineFollower::LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1
   pinMode(sensor4, INPUT);
   pinMode(sensor5, INPUT);
 
-  //Enable Motor driver channels  
+  //Enable Motor driver channels
   enable1= _enable1; // store the enable pins arguments inside the variables
   enable2= _enable2; // store the enable pins arguments inside the variables
   pinMode(enable1, OUTPUT);
@@ -43,10 +46,14 @@ LineFollower::LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1
 
   // to visualise sensor data from computer's monitor
   Serial.begin(9600);
+
+  logFile.open("log.txt");
+  logFile << "Log file:\n";
 }
 
 
 void LineFollower::goForward(int f) {
+  logFile << "Forward...\n";
   analogWrite(motor1a , f); // run the right motor in a direction
   digitalWrite(motor1b , LOW);
   analogWrite(motor2a , f); // run the Left motor in the same direction as the right one
@@ -55,6 +62,7 @@ void LineFollower::goForward(int f) {
 
 
 void LineFollower::stopCar() {
+  logFile << "STOP...\n";
   digitalWrite(motor1a , LOW); // stop the right motor
   digitalWrite(motor1b , LOW);
   digitalWrite(motor2a , LOW); // stop the Left motor
@@ -62,6 +70,7 @@ void LineFollower::stopCar() {
 }
 
 void LineFollower::goBackward(int b) {
+  logFile << "Backwards...\n";
   digitalWrite(motor1a , LOW);
   analogWrite(motor1b , b); // run the right motor in opposite direction
   digitalWrite(motor2a , LOW);
@@ -69,6 +78,7 @@ void LineFollower::goBackward(int b) {
 }
 
 void LineFollower::turnRight(int r) {
+  logFile << "Soft Right...\n";
   digitalWrite(motor1a , LOW); // stop the right motor
   digitalWrite(motor1b , LOW);
   analogWrite(motor2a , r); // run the Left motor in forward direction
@@ -76,6 +86,7 @@ void LineFollower::turnRight(int r) {
 }
 
 void LineFollower::turnLeft(int l) {
+  logFile << "Soft Left...\n";
   analogWrite(motor1a , l); // run the right motor in forward direction
   digitalWrite(motor1b , LOW);
   digitalWrite(motor2a , LOW); // Stop the Left motor
@@ -83,6 +94,7 @@ void LineFollower::turnLeft(int l) {
 }
 
 void LineFollower::activateSensors() {
+  logFile << "Reading sensor values...\n";
   sensor1 = analogRead(A0);
   sensor2 = analogRead(A1);
   sensor3 = analogRead(A2);
@@ -120,6 +132,7 @@ int LineFollower::valueOfSensor(int a) { // a is the number of sensor whose valu
 
 // detect a Right angle on the right of the car.
 void LineFollower::rightRA(int rra) {
+  logFile << "Turning 90 deg right...\n";
   do {
     digitalWrite(motor1a , LOW);
     digitalWrite(motor1b , LOW);
@@ -131,19 +144,21 @@ void LineFollower::rightRA(int rra) {
 
 // detect a Right angle on the Left of the car.
 void LineFollower::leftRA(int lra) {
+  logFile << "Turning 90 deg left...\n";
   do {
     analogWrite(motor1a , lra); // run the left motor in a direction
     digitalWrite(motor1b , LOW);
     analogWrite(motor2a , LOW);
     digitalWrite(motor2b , LOW);
   }
-  while (sensor5 != 1 && sensor4 != 1 && sensor3 == 1); // To be changed?!
+  while ((sensor5 != 1) && (sensor4 != 1) && (sensor3 == 1)); // To be changed?!
+  //works in theory, might not work in practice, due to sensor lag {Jakov}
 }
 
 
 void LineFollower::testSensors(int numberOfSensors , char signalType)//Test code for one sensor or 5 sensors pass 'A' for analog , 'D' for digital
 {
-  if (numberOfSensors == 1 && signalType == 'A') { // test code for 1 analog sensor  
+  if (numberOfSensors == 1 && signalType == 'A') { // test code for 1 analog sensor
     sensor1 = analogRead(A0);
     Serial.println(sensor1);
   }
