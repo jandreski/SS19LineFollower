@@ -2,12 +2,6 @@
 #define LINEFOLLOWER_H
 
 #include "Arduino.h"
-//#include <fstream>
-
-//master control constants
-//const double forwardConst = 10;
-//const double softTurnConst = 10;
-//const double hardTurnConst = 10;
 
 const int blackValue = 0; //Specific analog or digital value of the sensor at which the sensor reads black.
 const int whiteValue = 1;
@@ -15,36 +9,28 @@ const int whiteValue = 1;
 class LineFollower
 {
   private:
-    //variables
-    int motor1a , motor1b; // Motor 1 pins
-    int motor2a , motor2b; // Motor 2 pins
+    //MOTOR variables' pins
+    int rightMotor1 , rightMotor2; // Right Motor pins
+    int leftMotor1 , leftMotor2; // Left Motor pins    
 
-    // Sensor value readings
-    int sensor1 , sensor2 , sensor3 , sensor4 , sensor5 ;
-    // sensor1 = leftmost  , sensor5 = Rightmost
+    //variable to store sensors' pins numbers
+    int s1Pin,s2Pin,s3Pin,s4Pin,s5Pin; 
 
-    //Pins of Motor driver channels
-    int enable1,enable2;
+    //MOTOR DRIVER enable pins
+    int enable1, enable2;
 
-    //log file
-    //std::ofstream logFile;
 
   public:
-    LineFollower(int _enable1, int _enable2, int _motor1a, int _motor1b, int _motor2a, int _motor2b,
-                 int _sensor1, int _sensor2, int _sensor3, int _sensor4, int _sensor5);
+    LineFollower(int , int , int , int , int , int ,
+                 int , int , int , int , int );
 
-    void goForward( int f);
+    void goForward( int);
     void stopCar();
-    void goBackward(int b); // do we need it??????
-    void turnRight(int r);
-    void turnLeft(int,int);
-    void storeSensorValues();
-    int valueOfSensor(int a); // get the value of specific sensor e.g. sensor4
-    void rightRA(int rra); // detect a Right angle on the right of the car.
-    void leftRA(int lra); // detect a Right angle on the left of the car.
-    void testSensors(int numberOfSensors , char signalType);//Test code for one sensor or 5 sensors
+    void goBackward(int);
+    void turnCar(int , int); // 1.speed of left motor, 2.speed of right motor
+    void testSensors(int  , byte );//Test code for one sensor or 5 sensors.
 
-    void determineDirection();
+    
 };
 
 #endif // LINEFOLLOWER_H

@@ -1,11 +1,16 @@
 #include "LineFollower.h"
 
+//////// NOT WORKING RIGHT NOW ////////////
 
-LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);//M1.1 , M1.2 , M2.1 , M2.2 , S1, S2, S3, S4, S5 
+
+//pins order inside the class parameter: 
+//enable1, enable2, leftMotor1, leftMotor2, rightMotor1, rightMotor2, S1, S2, S3, S4, S5
+LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);
+
 
 void setup() {
-  
 
+    Serial.begin(9600);
 }
 
 void loop() {

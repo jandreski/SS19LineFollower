@@ -1,7 +1,10 @@
 #include "LineFollower.h"
 
-char dirControl; // Variable to store a ch
-LineFollower lineFollower(0 , 15, 6, 10, 11, A0, A1, A2, A3, A4);//M1.1 , M1.2 , M2.1 , M2.2 , S1, S2, S3, S4, S5 
+char dirControl; // Variable to store a character
+
+//pins order inside the class parameter: 
+//enable1, enable2, leftMotor1, leftMotor2, rightMotor1, rightMotor2, S1, S2, S3, S4, S5
+LineFollower lineFollower(0, 1, 5, 6, 10, 11, A0, A1, A2, A3, A4);
 
 void setup() {
   
@@ -18,8 +21,8 @@ void loop() {
     case 'F' : lineFollower.goForward(255); break;
     case 'B' : lineFollower.goBackward(255); break;
     case 'S' : lineFollower.stopCar(); break;
-    case 'R' : lineFollower.turnRight(255); break;
-    case 'L' : lineFollower.turnLeft(255); break;
+    case 'R' : lineFollower.turnCar(255,0); break;//Turn right
+    case 'L' : lineFollower.turnCar(0,255); break;//Turn left
     default : break;    
   } 
   

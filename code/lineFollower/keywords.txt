@@ -15,9 +15,8 @@ LineFollower	KEYWORD1
 goForward	KEYWORD2
 stopCar	KEYWORD2
 goBackward	KEYWORD2
-turnRight	KEYWORD2
-turnLeft	KEYWORD2
-activateSensors	KEYWORD2
+turnCar	KEYWORD2
+getSensorsData	KEYWORD2
 valueOfSensor	KEYWORD2
 rightRA	KEYWORD2
 leftRA	KEYWORD2
