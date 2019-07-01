@@ -6,6 +6,7 @@
 const int blackValue = 0; //Specific analog or digital value of the sensor at which the sensor reads black.
 const int whiteValue = 1;
 
+
 class LineFollower
 {
   private:
@@ -24,11 +25,9 @@ class LineFollower
     LineFollower(int , int , int , int , int , int ,
                  int , int , int , int , int );
 
-    void goForward( int);
+    void goForward( int , int);
     void stopCar();
-    void goBackward(int);
     void turnCar(int , int); // 1.speed of left motor, 2.speed of right motor
-    void testSensors(int  , byte );//Test code for one sensor or 5 sensors.
 
     
 };

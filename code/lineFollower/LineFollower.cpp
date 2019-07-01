@@ -42,11 +42,11 @@ LineFollower::LineFollower(int _enable1, int _enable2, int _leftMotor1, int _lef
 }
 
 
-void LineFollower::goForward(int forwardSpeed) {
+void LineFollower::goForward(int leftMotorSpeed , int rightMotorSpeed) {
 
-  analogWrite(leftMotor1 , forwardSpeed); // run the Left motor in forward direction
+  analogWrite(leftMotor1 , leftMotorSpeed); // run the Left motor in forward direction
   digitalWrite(leftMotor2 , LOW);
-  analogWrite(rightMotor1 , forwardSpeed); // run the right motor in forward direction
+  analogWrite(rightMotor1 , rightMotorSpeed); // run the right motor in forward direction
   digitalWrite(rightMotor2 , LOW);
 }
 
@@ -60,14 +60,6 @@ void LineFollower::stopCar() {
 }
 
 
-void LineFollower::goBackward(int backwardSpeed) {
-
-  digitalWrite(leftMotor1 , LOW);
-  analogWrite(leftMotor2 , backwardSpeed);
-  digitalWrite(rightMotor1 , LOW);
-  analogWrite(rightMotor2 , backwardSpeed);
-}
-
 
 void LineFollower::turnCar(int leftMotorSpeed, int rightMotorSpeed) {
 
@@ -77,58 +69,3 @@ void LineFollower::turnCar(int leftMotorSpeed, int rightMotorSpeed) {
   digitalWrite(rightMotor2 , LOW);
 
 }
-
-
-
-
-
-/*
-
-void LineFollower::testSensors(int numberOfSensors , byte signalType)//Test code for one sensor or 5 sensors pass 'A' for analog , 'D' for digital
-{
-  if (numberOfSensors == 1 && signalType == 'A') { // test code for 1 analog sensor
-    sensor1 = analogRead(s1Pin);
-    Serial.println(sensor1);
-  }
-
-  else if (numberOfSensors == 1 && signalType == 'D') { // test code for 1 digital sensor
-    sensor1 = digitalRead(s1Pin);
-    Serial.println(sensor1);
-  }
-
-  else if (numberOfSensors == 5 && signalType == 'A') { // test code for 5 analog sensor
-    sensor1 = analogRead(s1Pin);
-    sensor2 = analogRead(s2Pin);
-    sensor3 = analogRead(s3Pin);
-    sensor4 = analogRead(s4Pin);
-    sensor5 = analogRead(s5Pin);
-    Serial.print(sensor1);
-    Serial.print(" ");
-    Serial.print(sensor2);
-    Serial.print(" ");
-    Serial.print(sensor3);
-    Serial.print(" ");
-    Serial.print(sensor4);
-    Serial.print(" ");
-    Serial.println(sensor5);
-  }
-
-  else if(numberOfSensors == 5 && signalType == 'D') { // test code for 5 digital sensor
-    sensor1 = digitalRead(s1Pin);
-    sensor2 = digitalRead(s2Pin);
-    sensor3 = digitalRead(s3Pin);
-    sensor4 = digitalRead(s4Pin);
-    sensor5 = digitalRead(s5Pin);
-    Serial.print(sensor1);
-    Serial.print(" ");
-    Serial.print(sensor2);
-    Serial.print(" ");
-    Serial.print(sensor3);
-    Serial.print(" ");
-    Serial.print(sensor4);
-    Serial.print(" ");
-    Serial.println(sensor5);
-  }
-
-
-}*/
