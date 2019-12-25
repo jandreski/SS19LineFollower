@@ -30,6 +30,7 @@ Materials Table:
 | *Battery holder* | 1 | 0€ |
 | *Switch* | 1 | 0€ |
 | *Resistor 10k Ohm* | 1 | 0€ |
+| **Total** | | 9.49€ |
 
 ## Demonstration
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
