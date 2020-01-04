@@ -33,6 +33,6 @@ Materials Table:
 | **Total** | | 9.49€ |
 
 ## Demonstration
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=w5VfDQq7N20
+" target="_blank"><img src="http://img.youtube.com/vi/w5VfDQq7N20/0.jpg" 
 alt="Demonstration Video" width="240" height="180" border="10" /></a> 
